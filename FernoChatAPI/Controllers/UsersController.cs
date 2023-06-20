@@ -16,16 +16,16 @@ namespace FernoChatAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Users>> GetAllUsers()
+        public ActionResult<List<User>> GetAllUsers()
         {
-            List<Users> users = userService.GetAllUsers();
+            List<User> users = userService.GetAllUsers();
             return Ok(users);
         }
 
         [HttpGet("{userId}")]
-        public ActionResult<Users> GetUserById(int userId)
+        public ActionResult<User> GetUserById(int userId)
         {
-            Users user = userService.GetUserById(userId);
+            User user = userService.GetUserById(userId);
             if (user == null)
             {
                 return NotFound();
@@ -34,14 +34,14 @@ namespace FernoChatAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateUser(Users user)
+        public ActionResult CreateUser(User user)
         {
             userService.CreateUser(user);
             return CreatedAtAction(nameof(GetUserById), new { userId = user.UserId }, user);
         }
 
         [HttpPut("{userId}")]
-        public ActionResult UpdateUser(int userId, Users user)
+        public ActionResult UpdateUser(int userId, User user)
         {
             if (userId != user.UserId)
             {

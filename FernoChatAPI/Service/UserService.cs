@@ -12,22 +12,22 @@ namespace FernoChatAPI.Service
             this.userRepository = userRepository;
         }
 
-        public List<Users> GetAllUsers()
+        public List<User> GetAllUsers()
         {
             return userRepository.GetAllUsers();
         }
 
-        public Users GetUserById(int userId)
+        public User GetUserById(int userId)
         {
             return userRepository.GetUserById(userId);
         }
 
-        public void CreateUser(Users user)
+        public void CreateUser(User user)
         {
             userRepository.CreateUser(user);
         }
 
-        public void UpdateUser(Users user)
+        public void UpdateUser(User user)
         {
             userRepository.UpdateUser(user);
         }

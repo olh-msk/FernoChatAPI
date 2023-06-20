@@ -7,9 +7,10 @@ namespace FernoChatAPI.Repository
     {
         // Define your entity DbSet properties here
 
-        public DbSet<Users> Users { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        // Other entity DbSet properties
+        public DbSet<Conversation> Conversations { get; set; }
+
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
@@ -20,8 +21,11 @@ namespace FernoChatAPI.Repository
         {
             // Configure your entity mappings here
 
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<User>()
                 .HasKey(u => u.UserId);
+
+            modelBuilder.Entity<Conversation>()
+                .HasKey(u => u.ConversationId);
 
             // Other entity configurations
         }

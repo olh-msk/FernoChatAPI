@@ -18,9 +18,10 @@ builder.Services.AddSwaggerGen();
 
 // Register your services and the DatabaseConnection in the DI container
 builder.Services.AddSingleton<IConfiguration>(configuration);
-builder.Services.AddSingleton<DatabaseConnection>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<ConversationsRepository>();
+builder.Services.AddScoped<ConversationsService>();
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {

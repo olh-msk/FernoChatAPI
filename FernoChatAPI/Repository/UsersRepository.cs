@@ -11,23 +11,23 @@ namespace FernoChatAPI.Repository
             _dbContext = dbContext;
         }
 
-        public List<Users> GetAllUsers()
+        public List<User> GetAllUsers()
         {
             return _dbContext.Users.ToList();
         }
 
-        public Users GetUserById(int userId)
+        public User GetUserById(int userId)
         {
             return _dbContext.Users.FirstOrDefault(u => u.UserId == userId);
         }
 
-        public void CreateUser(Users user)
+        public void CreateUser(User user)
         {
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
         }
 
-        public void UpdateUser(Users user)
+        public void UpdateUser(User user)
         {
             _dbContext.Users.Update(user);
             _dbContext.SaveChanges();
