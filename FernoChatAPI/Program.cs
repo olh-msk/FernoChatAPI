@@ -1,5 +1,6 @@
 using FernoChatAPI.Repository;
 using FernoChatAPI.Service;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,11 @@ builder.Services.AddSingleton<IConfiguration>(configuration);
 builder.Services.AddSingleton<DatabaseConnection>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
+
+builder.Services.AddDbContext<DatabaseContext>(options =>
+{
+    options.UseSqlServer(configuration.GetConnectionString("PrimaryConnection"));
+});
 
 var app = builder.Build();
 
