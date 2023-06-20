@@ -11,6 +11,12 @@ namespace FernoChatAPI.Repository
 
         public DbSet<Conversation> Conversations { get; set; }
 
+        public DbSet<Participant> Participants { get; set; }
+
+        public DbSet<Message> Messages { get; set; }
+
+        public DbSet<MessageAttachment> Attachments { get; set; }
+
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
@@ -26,6 +32,15 @@ namespace FernoChatAPI.Repository
 
             modelBuilder.Entity<Conversation>()
                 .HasKey(u => u.ConversationId);
+
+            modelBuilder.Entity<Participant>()
+                .HasKey(u => u.ParticipantId);
+
+            modelBuilder.Entity<Message>()
+                .HasKey(u => u.MessageId);
+
+            modelBuilder.Entity<MessageAttachment>()
+                .HasKey(u => u.AttachmentId);
 
             // Other entity configurations
         }

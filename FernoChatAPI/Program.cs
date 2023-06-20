@@ -22,6 +22,12 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ConversationsRepository>();
 builder.Services.AddScoped<ConversationsService>();
+builder.Services.AddScoped<ParticipantRepository>();
+builder.Services.AddScoped<ParticipantService>();
+builder.Services.AddScoped<MessagesRepository>();
+builder.Services.AddScoped<MessagesService>();
+builder.Services.AddScoped<AttachmentsRepository>();
+builder.Services.AddScoped<AttachmentsService>();
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
